@@ -1,89 +1,161 @@
-# Next.js Blog with TypeScript, Pages Router, and Storyblok CMS Integration
+# Technorivals Blog
 
-# Technorivals - Where Code Meets Creativity
+A modern, feature-rich blog platform built with Next.js and Storyblok CMS. This project provides a clean, responsive design with dark mode support, SEO optimization, and TypeScript integration.
 
-A developer blog for tech enthusiasts and innovators.<br />
+![Technorivals Blog](public/social-banner.png)
 
-This project is a TypeScript conversion of the original Next.js blog template with added Storyblok CMS integration.
+## 🚀 Features
 
-## Features
+- **Next.js 15+** - Using the latest version of Next.js with Pages Router
+- **Storyblok CMS Integration** - Headless CMS for content management
+- **TypeScript Support** - Fully typed components and pages
+- **Responsive Design** - Mobile-first approach with Tailwind CSS
+- **Dark Mode** - Toggle between light and dark themes
+- **SEO Optimized** - Meta tags and structured data for better search engine visibility
+- **Image Optimization** - Next.js Image component for optimized images
+- **Category Filtering** - Browse posts by categories
+- **Sitemap Generation** - Automatic sitemap generation
+- **Supabase Integration** - For view counts and other dynamic features
 
-- **TypeScript Support**: Fully typed components and pages
-- **Pages Router**: Using Next.js Pages Router for routing
-- **Storyblok CMS Integration**: Ready to connect with Storyblok headless CMS
-- **SEO Optimized**: Meta tags and structured data for better search engine visibility
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Dark Mode Support**: Toggle between light and dark themes
-- **Markdown Support**: Blog posts written in MDX with Velite.js
+## 📋 Prerequisites
 
-## Getting Started
+- Node.js 18.18.0 or later
+- pnpm (recommended) or npm
 
-1. Clone the repository
+## 🛠️ Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/technorivals-blog-v2.git
+   cd technorivals-blog-v2
+   ```
+
 2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+3. Create a `.env.local` file in the root directory with your Storyblok API token:
+   ```
+   STORYBLOK_API_TOKEN=your_storyblok_api_token_here
+   NEXT_PUBLIC_STORYBLOK_API_TOKEN=your_storyblok_api_token_here
+   ```
+
+## 🚀 Development
+
+Run the development server:
 
 ```bash
-npm install
-# or
-yarn install
+pnpm dev
 ```
 
-3. Run the development server:
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## 🏗️ Build
+
+Build the project for production:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm build
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+Start the production server:
 
-## Storyblok CMS Integration
+```bash
+pnpm start
+```
 
-This project is set up to work with Storyblok CMS. See [STORYBLOK-INTEGRATION.md](./STORYBLOK-INTEGRATION.md) for detailed instructions on how to set up and use Storyblok with this project.
+## 📝 Storyblok CMS Setup
 
----
+This project is configured to work with Storyblok CMS. Follow these steps to set up your Storyblok space:
 
-> ### NOTE: This project uses [Velite.js](https://velite.js.org/) for the markdown files instead of contentlayer since it's more actively maintained.
+1. Create a Storyblok account at [storyblok.com](https://www.storyblok.com/)
+2. Create a new space
+3. Create a blog post content type with the following fields:
+   - Title (text)
+   - Content (rich text)
+   - Image (asset)
+   - Tags (multi-option)
 
----
+4. Generate your API token and add it to your `.env.local` file
 
-### ⭐DO NOT FORGET TO STAR THIS REPO⭐
+5. Pull Storyblok components and generate TypeScript types:
+   ```bash
+   pnpm pull-sb-components
+   pnpm generate-sb-types
+   ```
 
-### Images of The Portfolio Website:
+## 🧩 Project Structure
 
-#### Home
+```
+technorivals-blog-v2/
+├── public/               # Static assets
+├── src/
+│   ├── app/              # App Router components
+│   ├── components/       # Reusable components
+│   │   ├── Blog/         # Blog-specific components
+│   │   ├── Elements/     # UI elements
+│   │   ├── Home/         # Homepage components
+│   │   └── Storyblok/    # Storyblok-specific components
+│   ├── lib/              # Library code
+│   │   └── storyblok.ts  # Storyblok API utilities
+│   ├── pages/            # Pages Router components
+│   ├── types/            # TypeScript type definitions
+│   └── utils/            # Utility functions
+├── .env.local.example    # Example environment variables
+├── next.config.js        # Next.js configuration
+├── package.json          # Project dependencies
+├── tailwind.config.js    # Tailwind CSS configuration
+└── tsconfig.json         # TypeScript configuration
+```
 
-![Nextjs Personal Blog Website](https://github.com/codebucks27/Nextjs-contentlayer-blog/blob/main/project%20images/Home-Big.png?raw=true)
+## 🎨 Customization
 
-#### About
+### Site Metadata
 
-![Nextjs Personal Blog Website About Page](https://github.com/codebucks27/Nextjs-contentlayer-blog/blob/main/project%20images/About-Big.png?raw=true)
+Edit the `src/utils/siteMetaData.ts` file to update your site's metadata:
 
-#### Contact
+```typescript
+const siteMetadata = {
+  title: "Your Site Title",
+  author: "Your Name",
+  headerTitle: "Your Header Title",
+  description: "Your site description",
+  // ...other metadata
+};
+```
 
-![Next.js Personal Blog Website Contact Page](https://github.com/codebucks27/Nextjs-contentlayer-blog/blob/main/project%20images/Cotnact-Big.png?raw=true)
+### Styling
 
-For more Images please check the [project images](https://github.com/codebucks27/Nextjs-contentlayer-blog/tree/main/project%20images) folder from this repo or check the demo link.
+This project uses Tailwind CSS for styling. You can customize the theme in `tailwind.config.js`:
 
-### Resources Used in This Project
+```javascript
+theme: {
+  extend: {
+    colors: {
+      dark: "#1b1b1b",
+      light: "#fff",
+      accent: "#7B00D3",
+      accentDark: "#ffdb4d",
+      // Add your custom colors here
+    },
+    // Add other customizations
+  },
+},
+```
 
-- Character image in the About page created by using [Bing Search[(https://www.bing.com/).
-- Lottie animation in the contact page: [from here](https://lottiefiles.com/animations/sloth-meditate-SzNofNFhYY)
-- Fonts from https://fonts.google.com/ <br />
-- Icons from https://iconify.design/ <br />
+## 📱 Progressive Web App
 
-### All the images used in the blogs:
+This project includes PWA support. You can customize the PWA settings in `src/manifest.ts`.
 
-- Photo by <a href="https://unsplash.com/@kmuza?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Carlos Muza</a> on <a href="https://unsplash.com/photos/hpjSkU2UYSU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@marvelous?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marvin Meyer</a> on <a href="https://unsplash.com/photos/SYTO3xs06fU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@pinjasaur?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Paul Esch-Laurent</a> on <a href="https://unsplash.com/photos/oZMUrWFHOB4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/-1_RZL8BGBM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@laurenmancke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lauren Mancke</a> on <a href="https://unsplash.com/photos/aOC7TSLb1o8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@lucabravo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Luca Bravo</a> on <a href="https://unsplash.com/photos/XJXWbfSo2f0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christina @ wocintechchat.com</a> on <a href="https://unsplash.com/photos/OtHEYbQXLFU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@cdx2?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">C D-X</a> on <a href="https://unsplash.com/photos/PDX_a_82obo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">charlesdeluvio</a> on <a href="https://unsplash.com/photos/cZr2sgaxy3Q?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@emilep?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Emile Perron</a> on <a href="https://unsplash.com/photos/xrVDYZRGdw4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-- Photo by <a href="https://unsplash.com/@synkevych?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Roman Synkevych</a> on <a href="https://unsplash.com/photos/vXInUOv1n84?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+## 📄 License
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgements
+
+- [Next.js](https://nextjs.org/)
+- [Storyblok](https://www.storyblok.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
