@@ -1,8 +1,8 @@
 # Technorivals Blog
 
-A modern, feature-rich blog platform built with Next.js and Storyblok CMS. This project provides a clean, responsive design with dark mode support, SEO optimization, and TypeScript integration.
+> Where code meets creativity. A developer blog for tech enthusiasts and innovators.
 
-![Technorivals Blog](public/social-banner.png)
+A modern, feature-rich blog platform built with Next.js and Storyblok CMS. This project provides a clean, responsive design with dark mode support, SEO optimization, and TypeScript integration.
 
 ## 🚀 Features
 
@@ -25,12 +25,14 @@ A modern, feature-rich blog platform built with Next.js and Storyblok CMS. This 
 ## 🛠️ Installation
 
 1. Clone the repository:
+
    ```bash
-   git clone https://github.com/yourusername/technorivals-blog-v2.git
+   git clone https://github.com/technorivals/technorivals-blog-v2.git
    cd technorivals-blog-v2
    ```
 
 2. Install dependencies:
+
    ```bash
    pnpm install
    ```
@@ -72,6 +74,7 @@ This project is configured to work with Storyblok CMS. Follow these steps to set
 1. Create a Storyblok account at [storyblok.com](https://www.storyblok.com/)
 2. Create a new space
 3. Create a blog post content type with the following fields:
+
    - Title (text)
    - Content (rich text)
    - Image (asset)
@@ -113,21 +116,22 @@ technorivals-blog-v2/
 
 ### Site Metadata
 
-Edit the `src/utils/siteMetaData.ts` file to update your site's metadata:
+The site is already configured with Technorivals branding in `src/utils/siteMetaData.ts`:
 
 ```typescript
 const siteMetadata = {
-  title: "Your Site Title",
-  author: "Your Name",
-  headerTitle: "Your Header Title",
-  description: "Your site description",
+  title: "Technorivals - Code, Insights, Innovation",
+  author: "Technorivals",
+  headerTitle: "Technorivals",
+  description:
+    "Where code meets creativity. A developer blog for tech enthusiasts and innovators.",
   // ...other metadata
 };
 ```
 
 ### Styling
 
-This project uses Tailwind CSS for styling. You can customize the theme in `tailwind.config.js`:
+This project uses Tailwind CSS for styling with Technorivals' brand colors. The theme is defined in `tailwind.config.js`:
 
 ```javascript
 theme: {
@@ -135,11 +139,11 @@ theme: {
     colors: {
       dark: "#1b1b1b",
       light: "#fff",
-      accent: "#7B00D3",
-      accentDark: "#ffdb4d",
-      // Add your custom colors here
+      accent: "#7B00D3", // Technorivals primary purple
+      accentDark: "#ffdb4d", // Technorivals accent yellow
+      gray: "#747474",
     },
-    // Add other customizations
+    // Additional customizations for fonts, animations, etc.
   },
 },
 ```
